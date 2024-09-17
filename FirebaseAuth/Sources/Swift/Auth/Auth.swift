@@ -285,7 +285,7 @@ extension Auth: AuthInterop {
       deprecated,
       message: "`fetchSignInMethods` is deprecated and will be removed in a future release. This method returns an empty list when Email Enumeration Protection is enabled."
     )
-  #endif // !FIREBASE_CI
+
   @objc open func fetchSignInMethods(forEmail email: String,
                                      completion: (([String]?, Error?) -> Void)? = nil) {
     kAuthGlobalWorkQueue.async {
@@ -329,6 +329,8 @@ extension Auth: AuthInterop {
       }
     }
   }
+
+  #endif // !FIREBASE_CI
 
   /// Signs in using an email address and password.
   ///
